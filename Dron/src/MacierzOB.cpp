@@ -2,8 +2,20 @@
 #include "MacierzOB.hh"
 #include "Macierz.hh"
 #include "cmath"
-#include "Wektor.hh"
 using namespace std;
+
+
+
+
+MacierzOB::MacierzOB()
+{
+Macierz<double,3> mac;
+for(int i=0;i<3;i++)
+{
+  tab1[i]=mac[i];
+}
+}
+
 
 MacierzOB::MacierzOB(const Macierz<double,3> & M)
 {
@@ -22,6 +34,9 @@ if(abs(M.wyznacznik_1()) > epsilon)
 exit(1);
   }
 }
+
+
+
 
 /*
 MacierzOB MacierzOB::obrot(dobule kat, char znak)

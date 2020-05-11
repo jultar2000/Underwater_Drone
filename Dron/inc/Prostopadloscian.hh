@@ -1,6 +1,5 @@
-#ifndef PROSTOPADLOSCIAN
-#define PROSTOPADLOSCIAN
-
+#ifndef PROSTOPADLOSCIAN_HH
+#define PROSTOPADLOSCIAN_HH
 
 #include "Obiekt3D.hh"
 

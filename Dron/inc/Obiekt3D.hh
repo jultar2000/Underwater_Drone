@@ -14,8 +14,6 @@ using std::cout;
 using std::endl;
 
 
-
-
 class Obiekt3D 
 {
 protected:
