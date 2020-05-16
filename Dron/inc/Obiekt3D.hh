@@ -18,19 +18,25 @@ class Obiekt3D
 {
 protected:
 
-Wektor3D punkt_zero;
-
 Wektor3D punkt_odn;
 
 MacierzOB orientacja;
 
 public:
 
-//virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const = 0;
 
-//virtual void pozycja(const Wektor3D &Wektor) = 0;
 
-//virtual void ustaw_orientacje(const MacierzOB &Macierz) = 0;
+virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const = 0;
+
+void pozycja(const Wektor3D &Wektor) ; 
+
+void ustaw_orientacje(const MacierzOB &Macierz) ; 
+
+//virtual int wymaz();
+
+//Obiekt3D()=delete;
+
+
 
 
 };

@@ -11,6 +11,16 @@ using namespace std;
  */
 
 
+
+template<class Typ, int SWymiar>
+Wektor<Typ,SWymiar>::Wektor(Typ xx, Typ yy, Typ zz)
+{
+tab[0]=xx;
+tab[1]=yy;
+tab[2]=zz;
+}
+
+
 template<class Typ, int SWymiar>
 Wektor<Typ,SWymiar>::Wektor()
 {
@@ -91,6 +101,14 @@ Wynik[i]=tab[i]*l2;
 return Wynik;
 }
 
+template<class Typ, int SWymiar>
+Typ Wektor<Typ,SWymiar>::dlugosc(Wektor<Typ,SWymiar> & W2) const 
+{
+Typ Wynik;
+Wynik= sqrt(pow(W2[0],2)+pow(W2[1],2)+pow(W2[2],2));
+return Wynik;
+}
+
 
 template<class Typ, int SWymiar>
 bool Wektor<Typ,SWymiar>::operator==(const Wektor<Typ,SWymiar> & W2) const  // Operator sprawdzenia rownosci
@@ -129,10 +147,6 @@ return Wynik;
 
 
 
-
-
-
-
 template<class Typ, int SWymiar>
 bool Wektor<Typ,SWymiar>::operator!= (const Wektor<Typ,SWymiar> & W2) const // Operator sprawdzenia nierownosci
 {
@@ -153,15 +167,15 @@ return Strm;
 template<class Typ, int SWymiar>
 std::ostream& operator << (std::ostream &Strm, const Wektor<Typ,SWymiar> &Wek) //przeciazenie operatora wyjscia wektora
 {
+
 int i;
-cout <<" ";
-Strm << "[";
+Strm << "|";
 for(i=0;i<SWymiar;i++)
 {
 Strm<<Wek[i];
 cout <<" ";
 }
-Strm << "]";
+Strm << "|";
 return Strm;
 }    
 

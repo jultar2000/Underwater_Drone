@@ -16,9 +16,9 @@ Macierz <Typ,SWymiar>::Macierz() //konstruktor domyslny
 {
 Wektor<Typ,SWymiar> a;    
 for(int i; i<SWymiar;i++)
-{
+     {
 tab1[i]=a;
-}
+     }
 }
 
 template<class Typ, int SWymiar>
@@ -184,17 +184,16 @@ Strm>>Mac[i];
 
 return Strm;
 }     
+
+
 template<class Typ, int SWymiar>
 std::ostream& operator << (std::ostream &Strm, const Macierz<Typ,SWymiar> &Mac) // przeciazenie wyjscia Macierz<Typ,SWymiar>y
 {
 int i;
-cout <<" ";
-Strm << "[";
 for(i=0;i<SWymiar;i++)
 {
 Strm<<Mac[i];
-cout <<" ";
+cout <<endl;
 }
-Strm << "]";
 return Strm;
 }

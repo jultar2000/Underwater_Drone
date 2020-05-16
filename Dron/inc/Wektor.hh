@@ -18,6 +18,8 @@ public:
 
 Wektor();
 
+Wektor(Typ xx, Typ yy, Typ zz);
+
 Typ & operator[] (int index) ;
 
 const Typ & operator[](int index) const ; 
@@ -31,6 +33,8 @@ Typ operator* (const Wektor<Typ,SWymiar> & W2) const ;
 Wektor<Typ,SWymiar> operator* (Typ l2) const ; 
 
 Wektor<Typ,SWymiar> operator/ (Typ l2) const ; 
+
+Typ dlugosc(Wektor<Typ,SWymiar> & W2) const ; 
 
 bool operator== (const Wektor<Typ,SWymiar> & W2) const;
 

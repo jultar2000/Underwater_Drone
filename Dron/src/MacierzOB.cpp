@@ -1,84 +1,53 @@
 
 #include "MacierzOB.hh"
 #include "Macierz.hh"
-#include "cmath"
+#include <cmath>
 using namespace std;
+#define Pi 3.14
 
 
 
-
-MacierzOB::MacierzOB()
-{
-Macierz<double,3> mac;
-for(int i=0;i<3;i++)
-{
-  tab1[i]=mac[i];
-}
-}
-
-
-MacierzOB::MacierzOB(const Macierz<double,3> & M)
-{
-double epsilon=0.00000001;
-for(int i=0;i<1;i++)
-    {
-if(abs(M[i]*M[i+1]) > epsilon)
-exit(1);
-    }
-if(abs(M[1]*M[2]) > epsilon)
+MacierzOB::MacierzOB() 
         {
-exit(1);
-        }
-if(abs(M.wyznacznik_1()) > epsilon)
-  {
-exit(1);
-  }
-}
+tab1[0][0]=1;       
+tab1[1][1]=1; 
+tab1[2][2]=1; 
+       }
 
-
-
-
-/*
-MacierzOB MacierzOB::obrot(dobule kat, char znak)
+MacierzOB::MacierzOB(double kat, char os)
 {  
-int tab[3][3];  
+kat=kat*Pi/180;
 
-for(int i=0;i<3;i++)
-{
-    for(int j;j<3;j++)
-    {
- if(j==i)
-tab[i][i]=1;
- else
-tab[i][i]=0;
-             
-    }
-}
-switch (znak)
+tab1[0][0]=1;       
+tab1[1][1]=1; 
+tab1[2][2]=1;
+
+switch (os)
  {
 case 'x':
   {
-tab[1][1]=cos(kat);
-tab[2][2]=cos(kat);
-tab[2][1]=sin(kat);
-tab[1][2]=-sin(kat);
+tab1[1][1]=cos(kat);
+tab1[2][2]=cos(kat);
+tab1[2][1]=sin(kat);
+tab1[1][2]=-sin(kat);
+break;
     }
 case 'y':
 {
-tab[0][0]=cos(kat);
-tab[2][2]=cos(kat);
-tab[0][2]=sin(kat);
-tab[2][0]=-sin(kat);
+tab1[0][0]=cos(kat);
+tab1[2][2]=cos(kat);
+tab1[0][2]=sin(kat);
+tab1[2][0]=-sin(kat);
+break;
  }
 case 'z':
  {
-tab[0][0]=cos(kat);
-tab[1][1]=cos(kat);
-tab[0][1]=-sin(kat);
-tab[1][0]=sin(kat);
+tab1[0][0]=cos(kat);
+tab1[1][1]=cos(kat);
+tab1[0][1]=-sin(kat);
+tab1[1][0]=sin(kat);
+break;
  }
-
-
     }
 }
-*/
+

@@ -4,6 +4,7 @@
 #include "Wektor.hh"
 #include "MacierzOB.hh"
 #include "Prostopadloscian.hh"
+#include "Dron.hh"
 
 using std::vector;
 using drawNS::Point3D;
@@ -22,10 +23,46 @@ void wait4key() {
 
 int main() {
 
+Dron D(40,50,30);
+Wektor3D wek(23,23,12);
 
-  std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-5,5,-5,5,-5,5,1000)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
-  //drawNS::Draw3DAPI * api = new APIGnuPlot3D(-5,5,-5,5,-5,5,1000); //alternatywnie zwykły wskaźnik
-  api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym pojawieniem się lub zniknięciem kształtu"
+
+std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-100,100,-100,100,-100,100,100)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
+
+
+api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym pojawieniem się lub zniknięciem kształtu"
+
+int k=D.narysuj(api);
+wait4key();
+
+/*
+wait4key();
+D.obroc_y(45);
+int jdds=D.narysuj(api);
+wait4key();
+wait4key();
+api->erase_shape(k);
+int jd=D.narysuj(api);
+wait4key();
+api->erase_shape(jd);
+D.obroc_y(57);
+int jeba=D.narysuj(api);
+wait4key();
+*/
+
+
+
+
+
+D.plyn(45.0,45.0,api);
+int jeba=D.narysuj(api);
+
+
+
+
+
+
+  /*
   int a=api->draw_line(drawNS::Point3D(0,0,0),drawNS::Point3D(2,0,0)); //rysuje linię pomiędzy (0,0,0) a (2,0,0), zapamiętuje id kształtu w zmiennej a 
   api->draw_line(drawNS::Point3D(0,0,0),drawNS::Point3D(0,0,5),"red"); //rysuje czerwoną linie pomiędzy (0,0,0) a (0,0,5)
 
@@ -71,6 +108,7 @@ int main() {
   wait4key();
   api->change_ref_time_ms(0);
 
+
   api->draw_surface(vector<vector<Point3D> > {{
 	drawNS::Point3D(-4,-2,-4), drawNS::Point3D(-4,0,-4), drawNS::Point3D(-4,2,-4)
 	  },{
@@ -83,7 +121,7 @@ int main() {
 	drawNS::Point3D(4,-2,-4), drawNS::Point3D(4,0,-4), drawNS::Point3D(4,2,-4)       
 	  }},"grey");//rysuje szarą powierzchnie
   cout << "pojawiła się szara powierzchnia" << endl;
-
+*/
   
   wait4key();
   

@@ -15,15 +15,18 @@ double B;
 
 double C; 
 
-Prostopadloscian();
+Prostopadloscian(){};
 
 Prostopadloscian(double bokA, double bokB, double bokC);
 
-//int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const override;
+int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const override;
 
-//void pozycja(const Wektor3D &Wektor) override;
+void pozycja(const Wektor3D &Wektor) ;
 
-//void ustaw_orientacje(const MacierzOB &Macierz) override;
+void ustaw_orientacje(const MacierzOB &Macierz) ;
+
+void wspolrzedne(Wektor3D wsp[]) const;
+
 
 
 };
