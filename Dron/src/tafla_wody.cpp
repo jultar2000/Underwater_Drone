@@ -3,7 +3,14 @@
 
 
 
+void ustaw_poziom(double poz)
+{
 
+
+
+
+    
+}
 
 
 int tafla::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const

@@ -9,8 +9,6 @@ class Dron : public Prostopadloscian
 {
 public:
 
-
-
 Dron(){};
 
 Dron(double AA,double BB,double CC);
@@ -26,9 +24,6 @@ void poruszaj(double dlugosc,double kat);
 void plyn(double dlugosc,double kat,std::shared_ptr<drawNS::Draw3DAPI> api);
 
 void obroc_anim(double kat,std::shared_ptr<drawNS::Draw3DAPI> api);
-
-
-
 
 
 };

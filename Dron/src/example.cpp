@@ -44,19 +44,16 @@ api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym
 
 int d=D.narysuj(api);
 
+
 wait4key();
+
 
 api->erase_shape(d); 
 
 
+pod.narysuj(api);
+taf.narysuj(api);
 
-
-
-
-
-
-//pod.narysuj(api);
-//taf.narysuj(api);
 D.obroc_anim(45,api);
 D.obroc_anim(60,api);
 D.plyn(-305,45,api);
@@ -73,10 +70,6 @@ D.plyn(705,45,api);
 D.plyn(-305,45,api);
 D.plyn(705,700,api);
 D.obroc_anim(45,api);
-
-
-
-
 wait4key();
 
 

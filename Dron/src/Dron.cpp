@@ -30,6 +30,7 @@ MacierzOB mac(kat,'z');
 orientacja=mac*orientacja;
      }
 
+
 void Dron::poruszaj(double dlugosc,double kat)
      {
 Wektor3D ruch(cos(kat)*dlugosc,cos(kat)*dlugosc,sin(kat)*dlugosc);
@@ -48,12 +49,12 @@ api->erase_shape(dron);
  }
 }
 
+
 void Dron::plyn(double dlugosc,double kat,std::shared_ptr<drawNS::Draw3DAPI> api) 
 {
-     
-for(int j=0;j<50;j++)
+for(int j=0;j<150;j++)
  {         
-     (*this).poruszaj(dlugosc/50,kat);  
+     (*this).poruszaj(dlugosc/150,kat);  
      int dron1=(*this).narysuj(api);
      if(j!=dlugosc-1)
      {  

@@ -1,25 +1,27 @@
 #ifndef GRANIASTOSLUP_HH
 #define GRANIASTOSLUP_HH
-#include "Obiekt3D.hh"
+#include "Prostopadloscian.hh"
 
 
-class Graniastoslup : public Obiekt3D
+class Graniastoslup : public Prostopadloscian
 {
 public:
 
-double A;
+double a;
 
-double B;
+double b;
 
 
 
 Graniastoslup(){};
 
-Graniastoslup(double A, double B);
+Graniastoslup(double bokA, double bokB);
 
+int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const override;
 
+void wspolrzedne(Wektor3D wsp[]) const;
 
 };
 
-
 #endif
+
