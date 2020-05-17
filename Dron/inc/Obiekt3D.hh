@@ -32,6 +32,7 @@ void pozycja(const Wektor3D &Wektor) ;
 
 void ustaw_orientacje(const MacierzOB &Macierz) ; 
 
+
 //virtual int wymaz();
 
 //Obiekt3D()=delete;

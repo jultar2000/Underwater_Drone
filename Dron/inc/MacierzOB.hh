@@ -3,7 +3,7 @@
 
 
 #include "Macierz.hh"
-#include "cmath"
+#include <cmath>
 
 
 class MacierzOB : public Macierz<double,3> 
@@ -12,9 +12,7 @@ public:
 
 MacierzOB();
 
-
 MacierzOB(double kat, char os);
-
 
 MacierzOB(const Macierz<double,3> & M) : Macierz<double,3> (M)
 {

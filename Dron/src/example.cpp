@@ -5,6 +5,12 @@
 #include "MacierzOB.hh"
 #include "Prostopadloscian.hh"
 #include "Dron.hh"
+#include "Plaszczyzna.hh"
+#include "Podloze.hh"
+#include "tafla_wody.hh"
+
+
+
 
 using std::vector;
 using drawNS::Point3D;
@@ -14,51 +20,64 @@ using std::endl;
 using std::cin;
 
 
-
 void wait4key() {
   do {
     std::cout << "\n Press a key to continue..." << std::endl;
   } while(std::cin.get() != '\n');
 }
 
+
+
 int main() {
 
-Dron D(40,50,30);
-Wektor3D wek(23,23,12);
+Dron D(451,500,300);
+tafla taf;
+Podloze pod;
 
 
-std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-100,100,-100,100,-100,100,100)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
 
+std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-1000,1000,-1000,1000,-1000,1000,1000)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
 
 api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym pojawieniem się lub zniknięciem kształtu"
 
-int k=D.narysuj(api);
+
+
+int d=D.narysuj(api);
+
 wait4key();
 
-/*
+api->erase_shape(d); 
+
+
+
+
+
+
+
+
+//pod.narysuj(api);
+//taf.narysuj(api);
+D.obroc_anim(45,api);
+D.obroc_anim(60,api);
+D.plyn(-305,45,api);
+D.plyn(705,45,api);
+D.plyn(-305,45,api);
+D.plyn(705,700,api);
+D.obroc_anim(45,api);
+D.plyn(-305,41,api);
+D.obroc_anim(75,api);
+D.plyn(-305,45,api);
+D.plyn(705,45,api);
+D.obroc_anim(45,api);
+D.plyn(705,45,api);
+D.plyn(-305,45,api);
+D.plyn(705,700,api);
+D.obroc_anim(45,api);
+
+
+
+
 wait4key();
-D.obroc_y(45);
-int jdds=D.narysuj(api);
-wait4key();
-wait4key();
-api->erase_shape(k);
-int jd=D.narysuj(api);
-wait4key();
-api->erase_shape(jd);
-D.obroc_y(57);
-int jeba=D.narysuj(api);
-wait4key();
-*/
-
-
-
-
-
-D.plyn(45.0,45.0,api);
-int jeba=D.narysuj(api);
-
-
-
 
 
 

@@ -3,8 +3,8 @@ CPPFLAGS= -c -g -Iinc -Wall -pedantic -std=c++17
 _start_: Dron
 	./Dron
 
-Dron: obj/Dr3D_gnuplot_api.o obj/example.o obj/Wektor.o obj/Macierz.o obj/Prostopadloscian.o obj/MacierzOB.o obj/Dron.o
-	g++ -o Dron obj/example.o obj/Dr3D_gnuplot_api.o obj/Wektor.o obj/Macierz.o obj/Prostopadloscian.o obj/MacierzOB.o obj/Dron.o -lpthread
+Dron: obj/Dr3D_gnuplot_api.o obj/example.o obj/Wektor.o obj/Macierz.o obj/Prostopadloscian.o obj/MacierzOB.o obj/Dron.o obj/Podloze.o obj/tafla_wody.o
+	g++ -o Dron obj/example.o obj/Dr3D_gnuplot_api.o obj/Wektor.o obj/Macierz.o obj/Prostopadloscian.o obj/MacierzOB.o obj/Dron.o obj/Podloze.o obj/tafla_wody.o -lpthread
 
 obj/example.o: src/example.cpp inc/Dr3D_gnuplot_api.hh
 	g++ ${CPPFLAGS} -o obj/example.o src/example.cpp
@@ -20,6 +20,18 @@ inc/Dr3D_gnuplot_api.hh: inc/Draw3D_api_interface.hh
 
 obj/Macierz.o: src/Macierz.cpp src/MacierzC.cpp inc/Macierz.hh
 	g++ ${CPPFLAGS} -o obj/Macierz.o src/MacierzC.cpp
+
+obj/Podloze.o: src/Podloze.cpp inc/Podloze.hh
+	g++ ${CPPFLAGS} -o obj/Podloze.o src/Podloze.cpp
+
+inc/Podloze.hh: inc/Plaszczyzna.hh	
+	touch inc/Podloze.hh
+
+obj/tafla_wody.o: src/tafla_wody.cpp inc/tafla_wody.hh
+	g++ ${CPPFLAGS} -o obj/tafla_wody.o src/tafla_wody.cpp	
+
+inc/tafla_wody.hh: inc/Plaszczyzna.hh	
+	touch inc/tafla_wody.hh
 
 obj/MacierzOB.o:inc/Macierz.hh src/MacierzOB.cpp inc/MacierzOB.hh
 	g++ ${CPPFLAGS} -o obj/MacierzOB.o src/MacierzOB.cpp
