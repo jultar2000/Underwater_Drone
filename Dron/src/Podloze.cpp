@@ -6,7 +6,7 @@ using namespace std;
 
 
 
-int Podloze::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const
+int Podloze::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) 
 {
 int x;	
 x=api->draw_surface(vector<vector<Point3D> > {{

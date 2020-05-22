@@ -13,7 +13,7 @@ double poziom;
 
 void ustaw_poziom(double poz);
 
-virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const=0;
+virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) =0;
 
 };
 

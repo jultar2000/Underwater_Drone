@@ -43,28 +43,27 @@ void Dron::obroc_anim(double kat,std::shared_ptr<drawNS::Draw3DAPI> api)
 for(int i=0;i<kat;i++)
     {    
 double a=kat*PI/180;
-int dron = (*this).narysuj(api);
-(*this).obroc_z(a);
-api->erase_shape(dron);    
+ (*this).narysuj(api);
+(*this).obroc_z(a);   
  }
 }
-
 
 void Dron::plyn(double dlugosc,double kat,std::shared_ptr<drawNS::Draw3DAPI> api) 
 {
 for(int j=0;j<150;j++)
  {         
      (*this).poruszaj(dlugosc/150,kat);  
-     int dron1=(*this).narysuj(api);
-     if(j!=dlugosc-1)
-     {  
-     api->erase_shape(dron1);  
-      }
+      (*this).narysuj(api);
+    
  } 
 }
 
 
 
+void Dron::poruszaj2(Wektor3D wek) 
+{
+punkt_odn= punkt_odn +wek;
+}
 
 
 

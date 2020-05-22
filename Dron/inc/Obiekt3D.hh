@@ -22,11 +22,13 @@ Wektor3D punkt_odn;
 
 MacierzOB orientacja;
 
+int jd;
+
 public:
 
 
 
-virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const = 0;
+virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) = 0;
 
 void pozycja(const Wektor3D &Wektor) ; 
 

@@ -13,7 +13,7 @@ public:
 
 tafla(){};
 
-int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) const override;
+int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) override;
 
 
 
