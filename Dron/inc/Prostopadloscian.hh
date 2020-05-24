@@ -27,7 +27,7 @@ void ustaw_orientacje(const MacierzOB &Macierz) ;
 
 void wspolrzedne(Wektor3D wsp[]) const;
 
-
+int wez_boki(double AA);
 
 };
 

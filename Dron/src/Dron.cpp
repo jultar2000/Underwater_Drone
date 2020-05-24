@@ -6,11 +6,25 @@
 
 Dron::Dron(double AA,double BB,double CC)
 {
+     
   A = AA;
   B = BB;
   C = CC;
-}
 
+Wektor3D przesun_prawy(0,AA/5,0);
+
+Wektor3D przesun_lewy(0,-AA/5,0);
+
+lewy_wirnik.wez_bok(AA/10,BB/2);
+
+lewy_wirnik.pozycja(przesun_lewy);
+
+prawy_wirnik.wez_bok(AA/10,BB/2);
+
+prawy_wirnik.pozycja(przesun_prawy);
+
+
+}
 
 void Dron::obroc_x(double kat)
      {
@@ -18,11 +32,13 @@ MacierzOB mac(kat,'x');
 orientacja=mac*orientacja;
      }
 
+
 void Dron::obroc_y(double kat)
      {
 MacierzOB mac(kat,'y');
 orientacja=mac*orientacja;
      }    
+
 
 void Dron::obroc_z(double kat)
      {
@@ -33,12 +49,17 @@ orientacja=mac*orientacja;
 
 void Dron::poruszaj(double dlugosc,double kat)
      {
-Wektor3D ruch(cos(kat)*dlugosc,cos(kat)*dlugosc,sin(kat)*dlugosc);
-punkt_odn= punkt_odn + ruch;
+double kat0=0;
+
+Wektor3D w(cos(PI*kat/180)*cos(PI*kat/180), sin(PI*kat/180)*cos(PI*kat/180),sin(PI*kat/180));
+w=w*dlugosc;
+w=orientacja*w;
+punkt_odn=punkt_odn+w;
      }
 
 
-void Dron::obroc_anim(double kat,std::shared_ptr<drawNS::Draw3DAPI> api)
+void Dron::obroc_anim_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api)
+
 {
 for(int i=0;i<kat;i++)
     {    
@@ -52,17 +73,21 @@ void Dron::plyn(double dlugosc,double kat,std::shared_ptr<drawNS::Draw3DAPI> api
 {
 for(int j=0;j<150;j++)
  {         
-     (*this).poruszaj(dlugosc/150,kat);  
-      (*this).narysuj(api);
-    
+(*this).poruszaj(dlugosc/150,kat);  
+lewy_wirnik.plyn_wirnik(dlugosc/150,kat);
+prawy_wirnik.plyn_wirnik(dlugosc/150,kat);
+(*this).rysuj_dron(api);
  } 
 }
 
 
-
-void Dron::poruszaj2(Wektor3D wek) 
+void Dron::rysuj_dron(std::shared_ptr<drawNS::Draw3DAPI> api)
 {
-punkt_odn= punkt_odn +wek;
+
+lewy_wirnik.narysuj(api);
+prawy_wirnik.narysuj(api);
+narysuj(api);
+
 }
 
 

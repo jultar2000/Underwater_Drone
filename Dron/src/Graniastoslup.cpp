@@ -1,5 +1,10 @@
 #include "Graniastoslup.hh"
 #include "Obiekt3D.hh"
+#include "Prostopadloscian.hh"
+
+void obroc_lewy(double kat);
+
+void obroc_prawy(double kat);
 
 
 
@@ -11,11 +16,30 @@ b=bokB;
 
 
 
+void Graniastoslup::wez_bok(double aa,double bb)
+{
+a=aa;
+b=bb;
+}
+
+
+void Graniastoslup::plyn_wirnik(double dlugosc,double kat)
+{
+
+Wektor3D ruch(cos(PI*kat/180)*cos(PI*kat/180), sin(PI*kat/180)*cos(PI*kat/180),sin(PI*kat/180));
+punkt_odn= punkt_odn + ruch*dlugosc;
+}
+
+
+
 
 void Graniastoslup::wspolrzedne(Wektor3D wsp[]) const
 {
+Wektor3D dodaj_pozycja(-b/2,-a/2,-a);
 
 Wektor3D srodek_gran(a/2,a/2,b/2);
+
+srodek_gran=srodek_gran+dodaj_pozycja;
 
 Wektor3D przesuniecie_y2(0,a/2,0);
 
@@ -25,26 +49,26 @@ Wektor3D przesuniecie_y(0,a,0);
 
 Wektor3D przesuniecie_z(0,0,a*sqrt(3)/2);
 
-
 Wektor3D OrY2=orientacja*przesuniecie_y2;
 Wektor3D OrX=orientacja*przesuniecie_x;
 Wektor3D OrY=orientacja*przesuniecie_y;
 Wektor3D OrZ=orientacja*przesuniecie_z;
 
 
-wsp[0] = punkt_odn + orientacja *srodek_gran +OrY2-OrY2;
-wsp[1] = punkt_odn + orientacja * srodek_gran + OrY2 + OrZ;
-wsp[2] = punkt_odn + orientacja *srodek_gran + OrY +OrY2 +OrZ;
-wsp[3] = punkt_odn + orientacja *srodek_gran + OrY + OrY ;
-wsp[4] = punkt_odn + orientacja * srodek_gran + OrY+OrY2 -OrZ;
-wsp[5] = punkt_odn + orientacja *srodek_gran +OrY2 - OrZ;
-wsp[6] = punkt_odn + orientacja *srodek_gran +OrY2 - OrX-OrY2;
-wsp[7] = punkt_odn + orientacja *srodek_gran + OrY2 + OrZ - OrX;
-wsp[8] = punkt_odn + orientacja *srodek_gran  + OrY +OrY2 +OrZ - OrX;
-wsp[9] = punkt_odn + orientacja *srodek_gran+ OrY +OrY - OrX;
-wsp[10] = punkt_odn + orientacja *srodek_gran + OrY+OrY2 -OrZ - OrX;
-wsp[11] = punkt_odn + orientacja *srodek_gran +OrY2 - OrZ - OrX;
+wsp[0] = punkt_odn + orientacja *srodek_gran - OrY- OrX;
+wsp[1] = punkt_odn + orientacja * srodek_gran + OrY2 + OrZ- OrY- OrX;
+wsp[2] = punkt_odn + orientacja *srodek_gran + OrY +OrY2 +OrZ- OrY- OrX;
+wsp[3] = punkt_odn + orientacja *srodek_gran + OrY + OrY- OrY- OrX ;
+wsp[4] = punkt_odn + orientacja * srodek_gran + OrY+OrY2 -OrZ- OrY- OrX;
+wsp[5] = punkt_odn + orientacja *srodek_gran +OrY2 - OrZ- OrY- OrX;
+wsp[6] = punkt_odn + orientacja *srodek_gran -OrX- OrY- OrX;
+wsp[7] = punkt_odn + orientacja *srodek_gran + OrY2 + OrZ - OrX- OrY- OrX;
+wsp[8] = punkt_odn + orientacja *srodek_gran  + OrY +OrY2 +OrZ - OrX- OrY- OrX;
+wsp[9] = punkt_odn + orientacja *srodek_gran+ OrY +OrY - OrX- OrY- OrX;
+wsp[10] = punkt_odn + orientacja *srodek_gran + OrY + OrY2 -OrZ - OrX- OrY- OrX;
+wsp[11] = punkt_odn + orientacja *srodek_gran +OrY2 - OrZ - OrX- OrY- OrX;
 }
+
 
 
 int Graniastoslup::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) 
@@ -62,6 +86,26 @@ jd = api->draw_polyhedron(vector<vector<Point3D> > {{
 	  }},"green");
     
     return jd;
-
 }
 
+
+
+
+void Graniastoslup::pozycja(const Wektor3D &wek)
+{
+punkt_odn=wek;
+}
+
+
+void Graniastoslup::obracaj_wirL(MacierzOB M)
+{
+orientacja=orientacja*M;
+}
+
+void Graniastoslup::obracaj_wirP(MacierzOB M, Wektor3D wek){
+
+orientacja=orientacja*M;
+punkt_odn=punkt_odn-wek;
+
+
+}

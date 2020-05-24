@@ -8,10 +8,6 @@ class Plaszczyzna : public Obiekt3D
 {
 public:
 
-double poziom;
-
-
-void ustaw_poziom(double poz);
 
 virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) =0;
 

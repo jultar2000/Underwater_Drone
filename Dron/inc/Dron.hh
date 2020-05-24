@@ -10,6 +10,10 @@ class Dron : public Prostopadloscian,  public interfejs
 {
 public:
 
+Graniastoslup lewy_wirnik;
+
+Graniastoslup prawy_wirnik;
+
 Dron(){};
 
 Dron(double AA,double BB,double CC);
@@ -24,10 +28,21 @@ void poruszaj(double dlugosc,double kat) override;
 
 void plyn(double dlugosc,double kat,std::shared_ptr<drawNS::Draw3DAPI> api) override;
 
-void obroc_anim(double kat,std::shared_ptr<drawNS::Draw3DAPI> api) override;
+void obroc_anim_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api) override;
 
-void poruszaj2(Wektor3D wek) override;
+void rysuj_dron(std::shared_ptr<drawNS::Draw3DAPI> api) override;
+
+
+
+
+
+
+
 };
+
+
+
+
 
 
 #endif

@@ -10,6 +10,13 @@ B=bokB;
 C=bokC;
 }
 
+int Prostopadloscian::wez_boki(double AA)
+{
+A=AA;
+return A;
+}
+
+
 void Prostopadloscian::pozycja(const Wektor3D &Wektor) 
 {
 punkt_odn = Wektor;
@@ -45,7 +52,6 @@ wsp[4] = punkt_odn + orientacja * srodkowy - OrZ;
 wsp[5] = punkt_odn + orientacja * srodkowy - OrX - OrZ;
 wsp[6] = punkt_odn + orientacja * srodkowy - OrY - OrZ - OrX;
 wsp[7] = punkt_odn + orientacja * srodkowy - OrY - OrZ;
-
 }
 
 int Prostopadloscian::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api)  
