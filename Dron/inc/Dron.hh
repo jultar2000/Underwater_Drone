@@ -8,12 +8,13 @@
 
 class Dron : public Prostopadloscian,  public interfejs
 {
-public:
+protected:
 
 Graniastoslup lewy_wirnik;
 
 Graniastoslup prawy_wirnik;
 
+public:
 Dron(){};
 
 Dron(double AA,double BB,double CC);

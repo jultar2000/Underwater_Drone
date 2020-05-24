@@ -10,16 +10,11 @@ class tafla : public Plaszczyzna
     
 public:
 
-
 tafla(){};
 
-int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) override;
-
-
+int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) override ;
 
 };
-
-
 
 
 #endif

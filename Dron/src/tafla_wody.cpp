@@ -1,6 +1,5 @@
 #include "tafla_wody.hh"
-
-
+#include "Plaszczyzna.hh"
 
 
 void ustaw_poziom(double poz)

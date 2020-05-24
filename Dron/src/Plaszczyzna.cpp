@@ -2,27 +2,5 @@
 
 
 
-void Plaszczyzna::ustaw_poziom(double poz)
-{
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

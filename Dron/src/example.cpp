@@ -38,8 +38,8 @@ Podloze pod;
 std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-200,200,-200,200,-200,200,200)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 2000 ms
 api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym pojawieniem się lub zniknięciem kształtu"
 
-pod.narysuj(api);
-taf.narysuj(api);
+//pod.narysuj(api);
+//taf.narysuj(api);
 D.rysuj_dron(api);
 //gran.narysuj(api);
 //D.obroc_anim(45,api);
@@ -50,7 +50,7 @@ wait4key();
 
 D.plyn(50,45,api);
 wait4key();
-D.plyn(50,45,api);
+
 
 wait4key();
 

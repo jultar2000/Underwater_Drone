@@ -6,12 +6,13 @@
 
 class Graniastoslup : public Obiekt3D
 {
-public:
+protected:
 
 double a;
 
 double b;
 
+public:
 Graniastoslup(){};
 
 Graniastoslup(double bokA, double bokB);
@@ -22,19 +23,15 @@ void wspolrzedne(Wektor3D wsp[]) const;
 
 void wez_bok(double a,double b);
 
-void obracaj_wirL(MacierzOB M);
-
-void obracaj_wirP(MacierzOB M, Wektor3D wek);
-
 void pozycja(const Wektor3D &wek);
 
 void plyn_wirnik(double dlugosc,double kat);
 
-void obroc_lewy(double kat);
-
-void obroc_prawy(double kat);
+void obroc_wir(double kat);
 
 void porusz(double dlugosc);
+
+void obroc_anim_wir_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api);
 
 };
 

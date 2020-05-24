@@ -1,7 +1,6 @@
 #include "Podloze.hh"
+#include "Plaszczyzna.hh"
 using namespace std;
-
-
 
 
 

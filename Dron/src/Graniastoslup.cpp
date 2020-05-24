@@ -24,13 +24,11 @@ b=bb;
 
 
 void Graniastoslup::plyn_wirnik(double dlugosc,double kat)
-{
 
-Wektor3D ruch(cos(PI*kat/180)*cos(PI*kat/180), sin(PI*kat/180)*cos(PI*kat/180),sin(PI*kat/180));
+{
+Wektor3D ruch(cos(PI*kat/180), cos(PI*kat/180),sin(PI*kat/180));
 punkt_odn= punkt_odn + ruch*dlugosc;
 }
-
-
 
 
 void Graniastoslup::wspolrzedne(Wektor3D wsp[]) const
@@ -97,15 +95,33 @@ punkt_odn=wek;
 }
 
 
-void Graniastoslup::obracaj_wirL(MacierzOB M)
+void Graniastoslup::obroc_wir(double kat)
 {
-orientacja=orientacja*M;
-}
-
-void Graniastoslup::obracaj_wirP(MacierzOB M, Wektor3D wek){
-
-orientacja=orientacja*M;
-punkt_odn=punkt_odn-wek;
-
+MacierzOB mac(kat,'x');
+orientacja=mac*orientacja;
 
 }
+
+
+void Graniastoslup::obroc_anim_wir_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api)
+{
+double a=kat*PI/180;
+(*this).narysuj(api);
+(*this).obroc_wir(a);   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
