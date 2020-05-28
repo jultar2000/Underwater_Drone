@@ -10,6 +10,9 @@ class MacierzOB : public Macierz<double,3>
 { 
 public:
 
+double kat_1;
+
+
 MacierzOB();
 
 MacierzOB(double kat, char os);
@@ -31,6 +34,8 @@ if(abs(M.wyznacznik_1()) > 1)
 exit(1);
   }
 }
+
+double zwroc_kat();
 
 };
 

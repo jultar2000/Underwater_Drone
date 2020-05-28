@@ -26,20 +26,11 @@ int jd;
 
 public:
 
-
-
-virtual int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) = 0;
+virtual void narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) = 0;
 
 void pozycja(const Wektor3D &Wektor) ; 
 
 void ustaw_orientacje(const MacierzOB &Macierz) ; 
-
-
-//virtual int wymaz();
-
-//Obiekt3D()=delete;
-
-
 
 
 };

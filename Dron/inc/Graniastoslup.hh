@@ -17,7 +17,7 @@ Graniastoslup(){};
 
 Graniastoslup(double bokA, double bokB);
 
-int narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) override;
+void narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) override;
 
 void wspolrzedne(Wektor3D wsp[]) const;
 
@@ -25,11 +25,7 @@ void wez_bok(double a,double b);
 
 void pozycja(const Wektor3D &wek);
 
-void plyn_wirnik(double dlugosc,double kat);
-
 void obroc_wir(double kat);
-
-void porusz(double dlugosc);
 
 void obroc_anim_wir_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api);
 

@@ -49,25 +49,20 @@ orientacja=mac*orientacja;
 
 void Dron::poruszaj(double dlugosc,double kat)
      {
-
-
-Wektor3D w(cos(PI*kat/180),cos(PI*45/180),sin(PI*kat/180));
-
+kat=PI*kat/180;     
+double kat2=orientacja.zwroc_kat()*PI/180;
+Wektor3D w(cos(kat)*cos(kat2),cos(kat)*sin(kat2),sin(kat));
 w=w*dlugosc;
-
-w=orientacja*w;
-
 punkt_odn=punkt_odn+w;
      }
 
 
 void Dron::obroc_anim_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api)
-
 {
 for(int i=0;i<kat;i++)
     {    
 double a=kat*PI/180;
- (*this).narysuj(api);
+(*this).narysuj(api);
 (*this).obroc_z(a);   
  }
 }
@@ -78,19 +73,13 @@ void Dron::plyn(double dlugosc,double kat,std::shared_ptr<drawNS::Draw3DAPI> api
 for(int j=0;j<150;j++)
  {         
 (*this).poruszaj(dlugosc/150,kat);  
-lewy_wirnik.plyn_wirnik(dlugosc/150,kat);
-prawy_wirnik.plyn_wirnik(dlugosc/150,kat);
-lewy_wirnik.obroc_anim_wir_z(kat,api);
-prawy_wirnik.obroc_anim_wir_z(kat,api);
 (*this).rysuj_dron(api);
  } 
- 
 }
 
 
 void Dron::rysuj_dron(std::shared_ptr<drawNS::Draw3DAPI> api)
 {
-
 lewy_wirnik.narysuj(api);
 prawy_wirnik.narysuj(api);
 narysuj(api);

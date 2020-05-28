@@ -16,7 +16,6 @@ A=AA;
 return A;
 }
 
-
 void Prostopadloscian::pozycja(const Wektor3D &Wektor) 
 {
 punkt_odn = Wektor;
@@ -54,7 +53,7 @@ wsp[6] = punkt_odn + orientacja * srodkowy - OrY - OrZ - OrX;
 wsp[7] = punkt_odn + orientacja * srodkowy - OrY - OrZ;
 }
 
-int Prostopadloscian::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api)  
+void Prostopadloscian::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api)  
 {
  Wektor3D tab[8];
 (*this).wspolrzedne(tab);
@@ -66,8 +65,7 @@ if (jd != -1)
       },{
         drawNS::Point3D(tab[4][0],tab[4][1],tab[4][2]), drawNS::Point3D(tab[5][0],tab[5][1],tab[5][2]), drawNS::Point3D(tab[6][0],tab[6][1],tab[6][2]), drawNS::Point3D(tab[7][0],tab[7][1],tab[7][2])
 	  }},"red");
-
-  return jd;    
+    
 }
 
 

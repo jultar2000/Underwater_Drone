@@ -14,8 +14,16 @@ tab1[1][1]=1;
 tab1[2][2]=1; 
        }
 
+
+double MacierzOB::zwroc_kat()
+{
+return this->kat_1;
+}
+
 MacierzOB::MacierzOB(double kat, char os)
 {  
+
+this->kat_1=kat;
 kat=kat*Pi/180;
 
 tab1[0][0]=1;       
@@ -49,5 +57,6 @@ tab1[1][0]=sin(kat);
 break;
  }
     }
+
 }
 
