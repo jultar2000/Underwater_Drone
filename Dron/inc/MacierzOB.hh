@@ -12,7 +12,6 @@ public:
 
 double kat_1;
 
-
 MacierzOB();
 
 MacierzOB(double kat, char os);

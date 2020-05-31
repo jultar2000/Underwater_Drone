@@ -10,13 +10,15 @@
 
 
 
+
+
 class Podloze : public Plaszczyzna
 {
 public:
 
 Podloze(){};
 
-void narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) override ;
+void narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) override;
 
 
 };

@@ -2,10 +2,6 @@
 #include "Obiekt3D.hh"
 #include "Prostopadloscian.hh"
 
-void obroc_lewy(double kat);
-
-void obroc_prawy(double kat);
-
 
 
 Graniastoslup::Graniastoslup(double bokA,double bokB)
@@ -19,7 +15,6 @@ void Graniastoslup::wez_bok(double aa,double bb)
 a=aa;
 b=bb;
 }
-
 
 void Graniastoslup::wspolrzedne(Wektor3D wsp[]) const
 {
@@ -37,7 +32,6 @@ Wektor3D przesuniecie_x(b,0,0);
 Wektor3D przesuniecie_y(0,a,0);
 
 Wektor3D przesuniecie_z(0,0,a*sqrt(3)/2);
-
 
 Wektor3D OrY2=orientacja*przesuniecie_y2;
 Wektor3D OrX=orientacja*przesuniecie_x;
@@ -76,26 +70,12 @@ jd = api->draw_polyhedron(vector<vector<Point3D> > {{
     
 }
 
-void Graniastoslup::pozycja(const Wektor3D &wek)
-{
-punkt_odn=wek;
-}
-
 
 void Graniastoslup::obroc_wir(double kat)
 {
 MacierzOB mac(kat,'x');
 orientacja=mac*orientacja;
 }
-
-
-void Graniastoslup::obroc_anim_wir_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api)
-{
-double a=kat*PI/180;
-(*this).narysuj(api);
-(*this).obroc_wir(a);   
-}
-
 
 
 

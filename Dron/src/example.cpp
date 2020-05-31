@@ -33,14 +33,39 @@ int main() {
 Dron D(27,20,15);
 tafla taf;
 Podloze pod;
+double a,b,d;
+int c;
 
-
-std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-100,100,-100,100,-100,100,100)); //włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms
+std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-100,100,-100,100,-100,100,100)); /*włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms*/  pod.narysuj(api);
 api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym pojawieniem się lub zniknięciem kształtu"
-pod.narysuj(api);
-taf.narysuj(api);
-wait4key();
-D.plyn(45,45,api);
-wait4key();
 
+D.rysuj_dron(api);
+taf.narysuj(api);
+pod.narysuj(api);
+while(1){
+cout <<"Wybierz opcje: "<< endl;
+cout <<"1. Obroc drona"<< endl;;
+cout <<"2. Porusz drona "<< endl;;
+cout <<"3. Zakoncz dzialanie programu"<< endl;
+cin >> c;
+switch(c)
+{
+case 1:
+cout <<"1. Podaj kat obrocenia:"<< endl;;
+cin >> a;
+D.obroc_dron(a,api);
+cout<< endl;
+break;
+case 2:
+cout <<"Podaj kat wznoszenia/opadania" <<endl;
+cin>> d;
+cout <<"Podaj dlugosc o jaka ma sie poruszyc dron: "<< endl;;
+cin >> b;
+D.plyn(b,d,api);
+cout<< endl;
+break;
+case 3:
+exit(1);
+}
+}
 }

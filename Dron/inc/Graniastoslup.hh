@@ -23,11 +23,9 @@ void wspolrzedne(Wektor3D wsp[]) const;
 
 void wez_bok(double a,double b);
 
-void pozycja(const Wektor3D &wek);
-
 void obroc_wir(double kat);
 
-void obroc_anim_wir_z(double kat,std::shared_ptr<drawNS::Draw3DAPI> api);
+
 
 };
 

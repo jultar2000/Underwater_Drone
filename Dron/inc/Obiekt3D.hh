@@ -7,6 +7,7 @@
 #include "Dr3D_gnuplot_api.hh"
 #include "Wektor.hh"
 #include "MacierzOB.hh"
+#include <unistd.h>
 using std::vector;
 using drawNS::Point3D;
 using drawNS::APIGnuPlot3D;
@@ -28,9 +29,20 @@ public:
 
 virtual void narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) = 0;
 
-void pozycja(const Wektor3D &Wektor) ; 
+void pozycja(const Wektor3D &Wektor)
+{
+punkt_odn=Wektor;
+}
 
-void ustaw_orientacje(const MacierzOB &Macierz) ; 
+void ustaw_orientacje(const MacierzOB &Macierz)
+{
+orientacja=Macierz;
+}
+
+MacierzOB wez_orientacje()
+{
+return orientacja;
+}
 
 
 };

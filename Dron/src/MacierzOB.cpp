@@ -14,7 +14,6 @@ tab1[1][1]=1;
 tab1[2][2]=1; 
        }
 
-
 double MacierzOB::zwroc_kat()
 {
 return this->kat_1;
