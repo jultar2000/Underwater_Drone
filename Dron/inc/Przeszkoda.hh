@@ -4,16 +4,9 @@
 
 
 #include "interfejs.hh"
-#include <iostream>
 #include "Dr3D_gnuplot_api.hh"
 #include "Wektor.hh"
 #include "MacierzOB.hh"
-#include <unistd.h>
-using std::vector;
-using drawNS::Point3D;
-using drawNS::APIGnuPlot3D;
-using std::cout;
-using std::endl;
 
 
 

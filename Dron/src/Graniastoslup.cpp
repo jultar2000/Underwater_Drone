@@ -16,6 +16,13 @@ a=aa;
 b=bb;
 }
 
+
+void Graniastoslup::obroc_wir(double kat)
+{
+MacierzOB mac(kat,'x');
+obrot=obrot*mac;
+}
+
 void Graniastoslup::wspolrzedne(Wektor3D wsp[]) const
 {
 
@@ -33,23 +40,23 @@ Wektor3D przesuniecie_y(0,a,0);
 
 Wektor3D przesuniecie_z(0,0,a*sqrt(3)/2);
 
-Wektor3D OrY2=orientacja*przesuniecie_y2;
-Wektor3D OrX=orientacja*przesuniecie_x;
-Wektor3D OrY=orientacja*przesuniecie_y;
-Wektor3D OrZ=orientacja*przesuniecie_z;
+Wektor3D OrY2=orientacja*obrot*przesuniecie_y2;
+Wektor3D OrX=orientacja*obrot*przesuniecie_x;
+Wektor3D OrY=orientacja*obrot*przesuniecie_y;
+Wektor3D OrZ=orientacja*obrot*przesuniecie_z;
 
-wsp[0] = punkt_odn + orientacja *srodek_gran - OrY- OrX;
+wsp[0] = punkt_odn + orientacja * srodek_gran - OrY- OrX;
 wsp[1] = punkt_odn + orientacja * srodek_gran + OrY2 + OrZ- OrY- OrX;
-wsp[2] = punkt_odn + orientacja *srodek_gran + OrY +OrY2 +OrZ- OrY- OrX;
-wsp[3] = punkt_odn + orientacja *srodek_gran + OrY + OrY- OrY- OrX ;
+wsp[2] = punkt_odn + orientacja * srodek_gran + OrY +OrY2 +OrZ- OrY- OrX;
+wsp[3] = punkt_odn + orientacja * srodek_gran + OrY + OrY- OrY- OrX ;
 wsp[4] = punkt_odn + orientacja * srodek_gran + OrY+OrY2 -OrZ- OrY- OrX;
-wsp[5] = punkt_odn + orientacja *srodek_gran +OrY2 - OrZ- OrY- OrX;
-wsp[6] = punkt_odn + orientacja *srodek_gran -OrX- OrY- OrX;
-wsp[7] = punkt_odn + orientacja *srodek_gran + OrY2 + OrZ - OrX- OrY- OrX;
-wsp[8] = punkt_odn + orientacja *srodek_gran  + OrY +OrY2 +OrZ - OrX- OrY- OrX;
-wsp[9] = punkt_odn + orientacja *srodek_gran+ OrY +OrY - OrX- OrY- OrX;
-wsp[10] = punkt_odn + orientacja *srodek_gran + OrY + OrY2 -OrZ - OrX- OrY- OrX;
-wsp[11] = punkt_odn + orientacja *srodek_gran +OrY2 - OrZ - OrX- OrY- OrX;
+wsp[5] = punkt_odn + orientacja * srodek_gran +OrY2 - OrZ- OrY- OrX;
+wsp[6] = punkt_odn + orientacja * srodek_gran -OrX- OrY- OrX;
+wsp[7] = punkt_odn + orientacja * srodek_gran + OrY2 + OrZ - OrX- OrY- OrX;
+wsp[8] = punkt_odn + orientacja * srodek_gran  + OrY +OrY2 +OrZ - OrX- OrY- OrX;
+wsp[9] = punkt_odn + orientacja * srodek_gran+ OrY +OrY - OrX- OrY- OrX;
+wsp[10] = punkt_odn + orientacja * srodek_gran + OrY + OrY2 -OrZ - OrX- OrY- OrX;
+wsp[11] = punkt_odn + orientacja * srodek_gran +OrY2 - OrZ - OrX- OrY- OrX;
 }
 
 
@@ -71,11 +78,6 @@ jd = api->draw_polyhedron(vector<vector<Point3D> > {{
 }
 
 
-void Graniastoslup::obroc_wir(double kat)
-{
-MacierzOB mac(kat,'x');
-orientacja=mac*orientacja;
-}
 
 
 

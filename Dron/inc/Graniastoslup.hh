@@ -12,6 +12,7 @@ double a;
 
 double b;
 
+MacierzOB obrot;
 public:
 Graniastoslup(){};
 

@@ -3,20 +3,14 @@
 
 #include "Dr3D_gnuplot_api.hh"
 #include "Przeszkoda.hh"
-#include "Przeszkoda.hh"
-#include <unistd.h>
-using std::vector;
-using drawNS::Point3D;
-using drawNS::APIGnuPlot3D;
-using std::cout;
-using std::endl;
+
+
 
 
 class interfejs
 {
 public:
 
-interfejs(){};
 
 virtual void obroc_x(double kat)=0;
 
@@ -36,9 +30,6 @@ virtual void obroc_prawy_wirnik() =0;
 
 virtual void obroc_lewy_wirnik() =0;
 
-
-
 };
-
 
 #endif

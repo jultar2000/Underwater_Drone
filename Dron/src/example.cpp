@@ -9,6 +9,10 @@
 #include "Podloze.hh"
 #include "tafla_wody.hh"
 #include "Graniastoslup.hh"
+#include "Przeszkoda_prostopadloscienna.hh"
+#include "interfejs.hh"
+
+
 
 
 
@@ -29,6 +33,15 @@ void wait4key() {
 
 
 int main() {
+  /*
+std::vector<std::shared_ptr<Przeszkoda> >kolekcja_przeszkod;
+std::vector<std::shared_ptr<interfejs> >kolekcja_dronow;
+std::shared_ptr<Dron> D1;
+std::shared_ptr<Przeszkoda> P;
+
+*/
+
+
 
 Dron D(27,20,15);
 tafla taf;
@@ -38,6 +51,12 @@ int c;
 
 std::shared_ptr<drawNS::Draw3DAPI> api(new APIGnuPlot3D(-100,100,-100,100,-100,100,100)); /*włacza gnuplota, pojawia się scena [-5,5] x [-5,5] x [-5,5] odświeżana co 1000 ms*/  pod.narysuj(api);
 api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym pojawieniem się lub zniknięciem kształtu"
+
+
+
+
+
+
 
 D.rysuj_dron(api);
 taf.narysuj(api);

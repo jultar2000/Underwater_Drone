@@ -3,18 +3,14 @@
 
 
 
-
+#include "Dr3D_gnuplot_api.hh"
 #include "Prostopadloscian.hh"
 #include "Graniastoslup.hh"
 #include "interfejs.hh"
-#include <iostream>
 #include "Przeszkoda.hh"
 #include <unistd.h>
-using std::vector;
-using drawNS::Point3D;
 using drawNS::APIGnuPlot3D;
-using std::cout;
-using std::endl;
+
 
 
 
@@ -34,7 +30,6 @@ Wektor3D porusz_lewy;
 
 
 public:
-Dron(){};
 
 Dron(double AA,double BB,double CC);
 

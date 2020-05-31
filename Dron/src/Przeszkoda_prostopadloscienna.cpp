@@ -8,11 +8,11 @@
 
 
 
-
-bool przeszkoda_prost::czy_przeszkoda(std::shared_ptr<interfejs> D) 
+bool przeszkoda_prost::czy_przeszkoda(std::shared_ptr<interfejs> D)
 {
-
+   
 }
+
 
 
 
