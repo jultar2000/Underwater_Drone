@@ -1,8 +1,7 @@
 #ifndef PLASZCZYZNA_HH
 #define PLASZCZYZNA_HH
 #include "Obiekt3D.hh"
-
-
+#include "Przeszkoda.hh"
 
 
 

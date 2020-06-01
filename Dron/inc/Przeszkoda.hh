@@ -15,6 +15,8 @@ class Przeszkoda
 
 public:
 
+
+
 virtual bool czy_przeszkoda(std::shared_ptr<interfejs> D)=0;
 
 };

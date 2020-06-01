@@ -30,6 +30,8 @@ virtual void obroc_prawy_wirnik() =0;
 
 virtual void obroc_lewy_wirnik() =0;
 
+virtual void obroc_wirniki() =0;
+
 };
 
 #endif

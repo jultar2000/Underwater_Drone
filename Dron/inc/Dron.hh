@@ -30,7 +30,6 @@ Wektor3D porusz_lewy;
 
 
 
-
 public: 
 
  
@@ -55,6 +54,9 @@ void obroc_prawy_wirnik() override;
 void obroc_lewy_wirnik() override;
 
 bool czy_przeszkoda(std::shared_ptr<interfejs> D) override;
+
+void obroc_wirniki() override;
+
 
 };
 

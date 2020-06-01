@@ -34,15 +34,18 @@ void pozycja(const Wektor3D &Wektor)
 punkt_odn=Wektor;
 }
 
+
 void ustaw_orientacje(const MacierzOB &Macierz)
 {
 orientacja=Macierz;
 }
 
+
 MacierzOB wez_orientacje()
 {
 return orientacja;
 }
+
 
 Wektor3D zwrot_srodek()
 {

@@ -33,9 +33,9 @@ int main() {
 
 std::vector<std::shared_ptr<Przeszkoda> >kolekcja_przeszkod;
 std::vector<std::shared_ptr<interfejs> >kolekcja_dronow;
-std::shared_ptr<Dron> D(new Dron(27,20,25));
+std::shared_ptr<Dron> D(new Dron(27,20,10));
 std::shared_ptr<Dron> D1(new Dron(15,15,15));
-//std::shared_ptr<przeszkoda_prost> P(new przeszkoda_prost(15,15,15));
+std::shared_ptr<przeszkoda_prost> P(new przeszkoda_prost(15,15,15));
 std::shared_ptr<tafla> taf(new tafla());
 std::shared_ptr<Podloze> pod(new Podloze());
 
