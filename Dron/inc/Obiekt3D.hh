@@ -44,6 +44,11 @@ MacierzOB wez_orientacje()
 return orientacja;
 }
 
+Wektor3D zwrot_srodek()
+{
+return punkt_odn;
+}
+
 
 };
 

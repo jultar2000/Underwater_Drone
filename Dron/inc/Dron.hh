@@ -29,8 +29,11 @@ Wektor3D porusz_prawy;
 Wektor3D porusz_lewy;
 
 
-public:
 
+
+public: 
+
+ 
 Dron(double AA,double BB,double CC);
 
 void obroc_x(double kat) override;

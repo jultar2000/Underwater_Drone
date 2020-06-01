@@ -8,7 +8,7 @@
 #include "Wektor.hh"
 #include "MacierzOB.hh"
 
-
+class interfejs;
 
 class Przeszkoda 
 {

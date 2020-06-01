@@ -6,19 +6,24 @@
 
 #include "Prostopadloscian.hh"
 #include "Przeszkoda.hh"
+#include "interfejs.hh"
 
 
 
-class przeszkoda_prost : public Przeszkoda , public Prostopadloscian
+
+
+class przeszkoda_prost : public Prostopadloscian , public Przeszkoda
 {
 public:
 
-przeszkoda_prost() : Prostopadloscian(A,B,C){};
+przeszkoda_prost(double AA,double BB,double CC);
 
 bool czy_przeszkoda(std::shared_ptr<interfejs> D) override;
 
 };
 
 
-
 #endif
+
+
+
