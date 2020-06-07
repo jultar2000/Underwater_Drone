@@ -30,8 +30,6 @@ void wait4key() {
 
 
 int main() {
-
-
 std::vector<std::shared_ptr<Przeszkoda> >kolekcja_przeszkod;
 std::vector<std::shared_ptr<interfejs> >kolekcja_dronow;
 std::shared_ptr<Dron> D(new Dron(27,20,10));
@@ -41,7 +39,7 @@ std::shared_ptr<przeszkoda_prost> P(new przeszkoda_prost(10,40,60));
 std::shared_ptr<tafla> taf(new tafla());
 std::shared_ptr<Podloze> pod(new Podloze());
 Wektor3D W(40,40,40);
-Wektor3D W2(40,-30,20);
+Wektor3D W2(70,-30,20);
 double a,b,d,k;
 int c;
 D1->pozycja(W);
@@ -51,14 +49,11 @@ api->change_ref_time_ms(0); //odświeżanie sceny zmienione na opcję "z każdym
 
 
 
-
-
 kolekcja_przeszkod.push_back(taf);
 kolekcja_przeszkod.push_back(pod);
 kolekcja_przeszkod.push_back(P);
-kolekcja_dronow.push_back(D);
-kolekcja_dronow.push_back(D1);
-
+kolekcja_przeszkod.push_back(D);
+kolekcja_przeszkod.push_back(D1);
 
 
 bool kolizja = false;
@@ -79,7 +74,7 @@ cin >> c;
 switch(c)
 {
 case 1:
-cout <<"1. Podaj kat obrocenia:"<< endl;;
+cout <<"1. Podaj kat obrocenia:"<< endl;
 cin >> a;
 D_abs->obroc_dron(a,api);
 cout<< endl;
@@ -105,8 +100,9 @@ for(auto elem: kolekcja_przeszkod)
       D_abs->plyn(1,d,api);
     }
     else
-     {
-      cout <<"Przeszkoda!";
+    {
+      cout <<"Uwaga przeszkoda!"<<endl;
+      break;
     }
 }
 break;

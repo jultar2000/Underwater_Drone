@@ -49,10 +49,11 @@ drawNS::Point3D(100,0,-100),drawNS::Point3D(-100,0,-100)
 
 bool Podloze::czy_przeszkoda(std::shared_ptr<interfejs> D)
 {
+double a=D->wez_wysokosc();
 
 
 double epsilon=-100;
-      if(D->zwrot_srodek()[2]<epsilon)
+      if(D->zwrot_srodek()[2]-a<epsilon)
 	  {
 		return true;
 	  }		

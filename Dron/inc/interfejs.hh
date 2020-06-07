@@ -36,6 +36,8 @@ virtual Wektor3D zwrot_srodek() =0;
 
 virtual double wez_promien() =0;
 
+virtual double wez_wysokosc() =0;
+
 };
 
 #endif

@@ -125,9 +125,16 @@ bool Dron::czy_przeszkoda(std::shared_ptr<interfejs> D)
 {
 double R=wez_promien();
 double r=(*this).wez_promien();
-return true;
-}
 
+Wektor3D w=D->zwrot_srodek()-(this)->zwrot_srodek();
+double d=sqrt(pow(w[0],2)+pow(w[1],2)+pow(w[2],2));
+if(D->zwrot_srodek()==punkt_odn)
+return false;
+if(R+r>d)
+return true;
+else
+return false;
+}
 
 
 double Dron::wez_promien()
@@ -138,7 +145,12 @@ return promien;
 }
 
 
-
+double Dron::wez_wysokosc() 
+{
+double wysokosc;
+wysokosc=C;
+return wysokosc;
+}
 
 
 

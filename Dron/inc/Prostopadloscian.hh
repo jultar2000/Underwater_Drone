@@ -7,7 +7,7 @@
 
 class Prostopadloscian : public Obiekt3D
 {
-public:
+protected:
 
 double A;
 
@@ -15,6 +15,7 @@ double B;
 
 double C; 
 
+public:
 Prostopadloscian(){};
 
 Prostopadloscian(double bokA, double bokB, double bokC);

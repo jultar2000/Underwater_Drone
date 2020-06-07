@@ -67,6 +67,8 @@ return punkt_odn;
 
 double wez_promien() override;
 
+double wez_wysokosc() override;
+
 };
 
 
