@@ -8,7 +8,10 @@
 #include "Graniastoslup.hh"
 #include "interfejs.hh"
 #include "Przeszkoda.hh"
+#include "Wirnik.hh"
 #include <unistd.h>
+
+using std::enable_shared_from_this;
 using drawNS::APIGnuPlot3D;
 
 
@@ -16,13 +19,13 @@ using drawNS::APIGnuPlot3D;
 
 
 
-class Dron : public Prostopadloscian,  public interfejs, public Przeszkoda
+class Dron : public Prostopadloscian,public interfejs,public Przeszkoda
 {
 protected:
 
-Graniastoslup lewy_wirnik;
+Wirnik lewy_wirnik;
 
-Graniastoslup prawy_wirnik;
+Wirnik prawy_wirnik;
 
 Wektor3D porusz_prawy;
 
@@ -57,6 +60,12 @@ bool czy_przeszkoda(std::shared_ptr<interfejs> D) override;
 
 void obroc_wirniki() override;
 
+Wektor3D zwrot_srodek() override
+{
+return punkt_odn;
+}
+
+double wez_promien() override;
 
 };
 

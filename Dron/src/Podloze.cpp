@@ -1,5 +1,6 @@
 #include "Podloze.hh"
 
+
 using namespace std;
 
 
@@ -44,3 +45,20 @@ drawNS::Point3D(100,0,-100),drawNS::Point3D(-100,0,-100)
 	  },"yellow");
 	
 }
+
+
+bool Podloze::czy_przeszkoda(std::shared_ptr<interfejs> D)
+{
+
+
+double epsilon=-100;
+      if(D->zwrot_srodek()[2]<epsilon)
+	  {
+		return true;
+	  }		
+else
+{
+return false;
+}
+}
+ 

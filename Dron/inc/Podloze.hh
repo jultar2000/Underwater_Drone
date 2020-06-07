@@ -4,7 +4,7 @@
 
 #include "Plaszczyzna.hh"
 #include "Przeszkoda.hh"
-
+#include "Wektor.hh"
 
 
 

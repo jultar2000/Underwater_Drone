@@ -30,7 +30,6 @@ exit(1);
   }
 }
 
-double zwroc_kat();
 
 };
 

@@ -32,6 +32,10 @@ virtual void obroc_lewy_wirnik() =0;
 
 virtual void obroc_wirniki() =0;
 
+virtual Wektor3D zwrot_srodek() =0;
+
+virtual double wez_promien() =0;
+
 };
 
 #endif

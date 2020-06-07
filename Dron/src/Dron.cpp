@@ -1,5 +1,6 @@
 #include "Dron.hh"
 #include <iostream>
+using std::enable_shared_from_this;
 #define PI 3.14
 
 
@@ -19,8 +20,8 @@ prawy_wirnik.wez_bok(AA/5,BB/2);
 prawy_wirnik.pozycja(przesun_prawy);
 porusz_prawy=przesun_prawy;
 porusz_lewy=przesun_lewy;
-
 }
+
 
 void Dron::obroc_x(double kat)
      {
@@ -55,10 +56,9 @@ narysuj(api);
 
 void Dron::poruszaj(double dlugosc,double kat)
      {
-//punkt_odn=orientacja*punkt_odn;  czemu nie dziala??
 kat=PI*kat/180;     
-double kat2=orientacja.zwroc_kat()*PI/180;
-Wektor3D w(cos(kat)*cos(kat2),cos(kat)*sin(kat2),sin(kat));
+Wektor3D w(cos(kat),0,sin(kat));
+w=orientacja*w;
 punkt_odn=punkt_odn+w*dlugosc;
      }
 
@@ -66,14 +66,13 @@ punkt_odn=punkt_odn+w*dlugosc;
 
 void Dron::plyn(double dlugosc,double kat,std::shared_ptr<drawNS::Draw3DAPI> api) 
 {
-for(int j=0;j<150;j++)
- {          
-obroc_wirniki();
-poruszaj(dlugosc/150,kat);  
+
+poruszaj(dlugosc,kat);  
 rysuj_dron(api);
 usleep(10000); 
- } 
 }
+
+
 
 
 void Dron::obroc_wirniki()
@@ -124,13 +123,19 @@ usleep(10000);
 
 bool Dron::czy_przeszkoda(std::shared_ptr<interfejs> D)
 {
-
-
-
-
-
+double R=wez_promien();
+double r=(*this).wez_promien();
+return true;
 }
 
+
+
+double Dron::wez_promien()
+{
+double promien;
+promien=A/2;
+return promien;
+}
 
 
 

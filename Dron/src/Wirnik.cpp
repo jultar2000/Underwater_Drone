@@ -1,18 +1,29 @@
+#include "Wirnik.hh"
 #include "Graniastoslup.hh"
-#include "Obiekt3D.hh"
-#include "Prostopadloscian.hh"
 
 
 
-Graniastoslup::Graniastoslup(double bokA,double bokB)
+Wirnik::Wirnik(double bokA,double bokB)
 {
 a=bokA;
 b=bokB;
 }
 
+void Wirnik::wez_bok(double aa,double bb)
+{
+a=aa;
+b=bb;
+}
 
 
-void Graniastoslup::wspolrzedne(Wektor3D wsp[]) const
+void Wirnik::obroc_wir(double kat)
+{
+MacierzOB mac(kat,'y');
+obrot=obrot*mac;
+}
+
+
+void Wirnik::wspolrzedne(Wektor3D wsp[]) const
 {
 
 Wektor3D dodaj_pozycja(-b/2,-a/2,-a);
@@ -31,10 +42,10 @@ Wektor3D przesuniecie_z(0,0,a*sqrt(3)/2);
 
 Wektor3D W=orientacja*srodek_gran;
 
-Wektor3D OrY2=orientacja * przesuniecie_y2;
-Wektor3D OrX=orientacja * przesuniecie_x;
-Wektor3D OrY=orientacja * przesuniecie_y;
-Wektor3D OrZ=orientacja * przesuniecie_z;
+Wektor3D OrY2=orientacja * obrot * przesuniecie_y2;
+Wektor3D OrX=orientacja * obrot * przesuniecie_x;
+Wektor3D OrY=orientacja * obrot * przesuniecie_y;
+Wektor3D OrZ=orientacja * obrot * przesuniecie_z;
 
 wsp[0] = punkt_odn + W - OrY- OrX;
 wsp[1] = punkt_odn + W + OrY2 + OrZ- OrY- OrX;
@@ -51,8 +62,7 @@ wsp[11] = punkt_odn + W +OrY2 - OrZ - OrX- OrY- OrX;
 }
 
 
-
-void Graniastoslup::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) 
+void Wirnik::narysuj(std::shared_ptr<drawNS::Draw3DAPI> api) 
 {
  Wektor3D tab[12];
 (*this).wspolrzedne(tab);
@@ -67,20 +77,4 @@ jd = api->draw_polyhedron(vector<vector<Point3D> > {{
 	  }},"black");
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

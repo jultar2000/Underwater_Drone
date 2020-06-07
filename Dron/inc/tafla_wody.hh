@@ -3,7 +3,7 @@
 #define TAFLA_WODY_HH
 #include "Plaszczyzna.hh"
 #include "Przeszkoda.hh"
-
+#include "Wektor.hh"
 
 class tafla : public Plaszczyzna, public Przeszkoda
 {
