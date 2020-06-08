@@ -33,13 +33,13 @@ int main() {
 std::vector<std::shared_ptr<Przeszkoda> >kolekcja_przeszkod;
 std::vector<std::shared_ptr<interfejs> >kolekcja_dronow;
 std::shared_ptr<Dron> D(new Dron(27,20,10));
-std::shared_ptr<Dron> D1(new Dron(15,15,15));
+std::shared_ptr<Dron> D1(new Dron(20,15,10));
 std::shared_ptr<Dron> D_abs(new Dron(0,0,0));
 std::shared_ptr<przeszkoda_prost> P(new przeszkoda_prost(10,40,60));
 std::shared_ptr<tafla> taf(new tafla());
 std::shared_ptr<Podloze> pod(new Podloze());
 Wektor3D W(40,40,40);
-Wektor3D W2(70,-30,20);
+Wektor3D W2(70,-10,20);
 double a,b,d,k;
 int c;
 D1->pozycja(W);
